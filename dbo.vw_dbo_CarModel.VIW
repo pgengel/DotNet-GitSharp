@@ -1,0 +1,27 @@
+SET ANSI_PADDING            ON;
+SET ANSI_WARNINGS           ON;
+SET ARITHABORT              ON;
+SET CONCAT_NULL_YIELDS_NULL ON;
+SET ANSI_NULLS              ON;
+SET QUOTED_IDENTIFIER       ON;
+SET NUMERIC_ROUNDABORT      OFF;
+GO
+
+SET NOCOUNT ON;
+GO
+
+--drop view if already exists
+IF EXISTS(SELECT 1 FROM sys.views WHERE OBJECT_ID = OBJECT_ID('dbo.vw_dbo_CarModel'))
+  DROP VIEW dbo.vw_dbo_CarModel;
+GO
+
+CREATE VIEW dbo.vw_dbo_CarModel
+AS
+  SELECT Id as Id,
+    MakeId as MakeId,
+    Name as Name
+  FROM dbo.tb_CarModel;
+GO
+
+EXEC sp_Version @dboObject = 'dbo.vw_dbo_CarModel.VIW', @Version = 1, @ExpectedHash = ''
+GO

@@ -1,0 +1,2 @@
+2017/09/03 6:38:39 PM-The number of records listed in the file: 5
+2017/09/03 6:38:39 PM-The number of distinct views: 2
